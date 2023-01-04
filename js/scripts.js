@@ -2,6 +2,18 @@ var player = document.getElementById("audio-player");
 btnPlayPause = document.getElementById('btnPlayPause');
 volumeBar    = document.getElementById('volume-bar');
 
+var qs = window.location.toString().split("?")[1];
+qs = qs.split("&");
+console.log(qs[0]);
+console.log(qs[1]);
+console.log(qs[2]);
+console.log(qs[3]);
+
+var finalSource = "https://";
+finalSource += qs[0].split("=")[1] + ":" + qs[1].split("=")[1] + "/" + qs[2].split("=")[1]
+
+console.log(finalSource);
+player.setAttribute('src', finalSource);
 // Update the video volume
 volumeBar.addEventListener("change", function(evt) {function displayMessage(message, canPlay) {
     var element = document.querySelector('#message');
